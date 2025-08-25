@@ -1,6 +1,4 @@
-import { initialise } from "./conductor/runner/util";
-import { BasicEvaluator } from "./conductor/runner";
-import type { IRunnerPlugin } from "./conductor/runner/types";
+import { BasicEvaluator, IRunnerPlugin } from "@sourceacademy/conductor";
 
 class EchoEvaluator extends BasicEvaluator {
   private count = 0;
@@ -13,9 +11,4 @@ class EchoEvaluator extends BasicEvaluator {
   }
 }
 
-// Signal that the worker loaded
-console.log("[echo-slang] worker booted");
-
-const { runnerPlugin, conduit } = initialise(EchoEvaluator);
-
-
+export default EchoEvaluator;

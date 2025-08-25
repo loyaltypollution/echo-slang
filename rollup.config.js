@@ -5,10 +5,8 @@ export default {
     input: 'src/index.ts',
     output: {
       file: 'dist/worker.js',
-      format: 'iife',
+      format: 'cjs',
       sourcemap: true
     },
     plugins: [typescript(), nodeResolve()]
   };
-  
-
