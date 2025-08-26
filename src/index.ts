@@ -1,14 +1,4 @@
-import { BasicEvaluator, IRunnerPlugin } from "@sourceacademy/conductor";
+import { initialise } from "@sourceacademy/conductor";
+import EchoEvaluator from "./EchoEvaluator";
 
-class EchoEvaluator extends BasicEvaluator {
-  private count = 0;
-  constructor(conductor: IRunnerPlugin) {
-    super(conductor);
-  }
-  async evaluateChunk(chunk: string): Promise<void> {
-    this.count++;
-    this.conductor.sendOutput(`[echo ${this.count}] ${chunk}`);
-  }
-}
-
-export default EchoEvaluator;
+const {runnerPlugin, conduit} = initialise(EchoEvaluator);
